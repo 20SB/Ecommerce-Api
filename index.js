@@ -8,7 +8,7 @@ const db = require('./config/mongoose');
 app.use(bodyParser.urlencoded ({extended : true}));
  
 // using routes 
-app.use("/products", require('./routes/product')); 
+app.use("/", require('./routes/product')); 
 
 app.listen(5000, function(){
     console.log('Server is running on port: 5000');

@@ -1,7 +1,6 @@
 const Product = require("../models/product");
 
 module.exports.products = async function (req, res) {
-    console.log("controller found");
     try {
         const foundProducts = await Product.find({});
         res.send(foundProducts);
