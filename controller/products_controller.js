@@ -4,7 +4,6 @@ module.exports.products = async function (req, res) {
     console.log("controller found");
     try {
         const foundProducts = await Product.find({});
-        console.log("Products found:", foundProducts);
         res.send(foundProducts);
     } catch (err) {
         console.error("Error:", err);
@@ -35,6 +34,34 @@ module.exports.delete = async function (req, res) {
         } else {
             res.send({ message: "Product deleted" });
         }
+    } catch (err) {
+        console.error("Error:", err);
+        res.status(500).send(err);
+    }
+};
+
+
+module.exports.updateQuantity = async function(req, res) {
+    const productID = req.params.productId;
+    const quantityChange = parseInt(req.query.number); // Assuming you pass the quantity change as a query parameter
+
+    try {
+        const foundProduct = await Product.findById(productID);
+
+        if (!foundProduct) {
+            return res.status(404).send({ message: "Product not found" });
+        }
+
+        // Calculate the new quantity
+        const newQty = foundProduct.quantity + quantityChange;
+
+        // Update the product's quantity
+        const updatedProduct = await Product.findByIdAndUpdate(productID, { quantity: newQty }, { new: true });
+
+        res.send({
+            product: updatedProduct,
+            message: 'Updated successfully'
+        });
     } catch (err) {
         console.error("Error:", err);
         res.status(500).send(err);
