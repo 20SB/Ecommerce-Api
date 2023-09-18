@@ -10,6 +10,6 @@ app.use(bodyParser.urlencoded ({extended : true}));
 // using routes 
 app.use("/products", require('./routes/product')); 
 
-app.listen(8000, function(){
-    console.log('Server is running on port: 8000');
+app.listen(5000, function(){
+    console.log('Server is running on port: 5000');
 })
