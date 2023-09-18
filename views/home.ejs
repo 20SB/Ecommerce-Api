@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home Page</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="text-align: center">Ecommerce API</h1>
+        <br />
+        <br />
+        <div class="container" style="width: auto; line-height: 1.5;">
+            <ul>
+                <li>This is an API for an eCommerce platform to manage product inventory.</li>
+                <li>You can test it using POSTMAN</li>
+                <li>You can perform CRUD operations on this API</li>
+                <li>C- Create or add Product</li>
+                <ul>
+                    <li>API to add products to the database</li>
+                    <li>URL [POST]: /products/create</li>
+                </ul>
+                <li>R- Read Products</li>
+                <ul>
+                    <li>API to list products</li>
+                    <li>URL [GET] : /products</li>
+                </ul>
+                <li>U- Update quanity of any specific product</li>
+                <ul>
+                    <li>API to delete products</li>
+                    <li>URL [DELETE] : /products/:id</li>
+                </ul>
+                <li>D- Delete any specific product</li>
+                <ul>
+                    <li>API to update quantity of a product (can be incremented or decremented)</li>
+                    <li>URL [POST] : /products/:id/update_quantity?number=10</li>
+                </ul>
+            </ul>
+        </div>
+        <br>
+        <br>
+        <a href="/products"><button>View Products</button></a>
+    </body>
+</html>
